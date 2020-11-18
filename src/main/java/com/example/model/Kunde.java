@@ -22,6 +22,16 @@ public class Kunde {
         this.rechnungen=new ArrayList<Rechnung>();
     }
 
+    public Kunde(@JsonProperty("kid") UUID id,
+                @JsonProperty("vorname") String vorname,
+                @JsonProperty("nachname") String nachname,
+                List<Rechnung> rechnungen){
+        this.kid = id;
+        this.vorname=vorname;
+        this.nachname=nachname;
+        this.rechnungen=rechnungen;
+    }
+
     public UUID getId(){
         return kid;
     }
@@ -36,5 +46,9 @@ public class Kunde {
 
     public List<Rechnung> getRechnungen(){
         return rechnungen;
+    }
+
+    public void addRechnung(Rechnung rechnung){
+        rechnungen.add(rechnung);
     }
 }

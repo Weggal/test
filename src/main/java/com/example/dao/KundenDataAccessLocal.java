@@ -45,7 +45,7 @@ public class KundenDataAccessLocal implements KundenDao {
         return selectKundeById(id).map(p -> {
             int indexOfKundeToUpdate = DB.indexOf(p);
             if (indexOfKundeToUpdate >= 0) {
-                DB.set(indexOfKundeToUpdate, new Kunde(id, update.getVorname(), update.getNachname()));
+                DB.set(indexOfKundeToUpdate, new Kunde(id, update.getVorname(), update.getNachname(), update.getRechnungen()));
                 return 1;
             }
             return 0;

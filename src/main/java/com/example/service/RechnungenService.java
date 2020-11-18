@@ -14,30 +14,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class RechnungenService {
     public final RechnungenDao rechnungenDao;
+    public final KundenService kundenService;
 
     @Autowired
-    public KundenService(@Qualifier("localKundenDao") RechnungenDao rechnungenDao){
+    public RechnungenService(@Qualifier("localRechnungDao") RechnungenDao rechnungenDao,KundenService kundenService){
         this.rechnungenDao=rechnungenDao;
+        this.kundenService=kundenService;
     }
 
-    public int addKunde(Kunde kunde){
-        return kundenDao.insertKunde(kunde);
+    public int addRechnung(Rechnung rechnung, UUID kid){
+        kundenService.getKundeById(kid).get().addRechnung(rechnung);
+        return rechnungenDao.insertRechnung(rechnung, kundenService.getKundeById(kid).get());
     }
 
-    public List<Kunde> getAllKunden() {
-        return kundenDao.selectAllKunde();
+    public List<Rechnung> getAllRechnungen() {
+        return rechnungenDao.selectAllRechnungen();
     }
 
-    public Optional<Kunde> getKundeById(UUID id){
-        return kundenDao.selectKundeById(id);
+    public Optional<Rechnung> getRechnungById(UUID id){
+        return rechnungenDao.selectRechnungById(id);
     }
-
-    public int deleteKunde(UUID id){
-        return kundenDao.deleteKundeById(id);
-    }
-
-    public int updateKunde(UUID id,Kunde kunde){
-        return kundenDao.updateKundeById(id, kunde);
-    }    
+ 
 
 }

@@ -9,17 +9,37 @@ public class Rechnung {
     private UUID rid;
     private String rechnugsnummer;
     private LocalDate rechnungsdatum;
-    private float Rechnungsbetrag;
+    private float rechnungsbetrag;
     private Kunde kunde;
 
     public Rechnung(@JsonProperty("rid") UUID id,
                 @JsonProperty("rechnugsnummer") String rechnugsnummer,
-                @JsonProperty("Rechnungsbetrag") float Rechnungsbetrag,
+                @JsonProperty("Rechnungsbetrag") float rechnungsbetrag,
                 @JsonProperty("kunde") Kunde kunde){
         this.rid = id;
         this.rechnugsnummer=rechnugsnummer;
         this.rechnungsdatum=java.time.LocalDate.now();
-        this.Rechnungsbetrag=Rechnungsbetrag;
+        this.rechnungsbetrag=rechnungsbetrag;
         this.kunde=kunde;
+    }
+
+    public UUID getId(){
+        return rid;
+    }
+
+    public String getRechnugsnummer(){
+        return rechnugsnummer;
+    }
+
+    public LocalDate getRechnungsdatum(){
+        return rechnungsdatum;
+    }
+
+    public float getRechnungsbetrag(){
+        return rechnungsbetrag;
+    }
+
+    public Kunde getKunde(){
+        return kunde;
     }
 }
