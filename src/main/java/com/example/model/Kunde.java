@@ -33,4 +33,8 @@ public class Kunde {
     public String getNachname(){
         return nachname;
     }
+
+    public List<Rechnung> getRechnungen(){
+        return rechnungen;
+    }
 }

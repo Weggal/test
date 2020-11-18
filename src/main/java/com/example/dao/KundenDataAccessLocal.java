@@ -31,7 +31,7 @@ public class KundenDataAccessLocal implements KundenDao {
     }
 
     @Override
-    public int deletKundeById(UUID id) {
+    public int deleteKundeById(UUID id) {
         Optional<Kunde> kundeMaybe = selectKundeById(id);
         if (kundeMaybe.isEmpty()) {
             return 0;

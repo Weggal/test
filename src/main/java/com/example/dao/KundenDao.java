@@ -19,7 +19,7 @@ public interface KundenDao {
 
     Optional<Kunde> selectKundeById(UUID id);
 
-    int deletKundeById(UUID id);
+    int deleteKundeById(UUID id);
 
     int updateKundeById(UUID id, Kunde update);
 }
