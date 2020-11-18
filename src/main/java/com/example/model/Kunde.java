@@ -21,4 +21,16 @@ public class Kunde {
         this.nachname=nachname;
         this.rechnungen=new ArrayList<Rechnung>();
     }
+
+    public UUID getId(){
+        return kid;
+    }
+
+    public String getVorname(){
+        return vorname;
+    }
+
+    public String getNachname(){
+        return nachname;
+    }
 }
