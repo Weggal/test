@@ -4,20 +4,20 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import com.example.dao.KundenDao;
-import com.example.model.Kunde;
+import com.example.dao.RechnungenDao;
+import com.example.model.Rechnung;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KundenService {
-    public final KundenDao kundenDao;
+public class RechnungenService {
+    public final RechnungenDao rechnungenDao;
 
     @Autowired
-    public KundenService(@Qualifier("localKundenDao") KundenDao kunenDao){
-        this.kundenDao=kunenDao;
+    public KundenService(@Qualifier("localKundenDao") RechnungenDao rechnungenDao){
+        this.rechnungenDao=rechnungenDao;
     }
 
     public int addKunde(Kunde kunde){
