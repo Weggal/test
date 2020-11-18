@@ -7,18 +7,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Rechnung {
     private UUID rid;
-    private String rechnugsnummer;
-    private LocalDate rechnungsdatum;
+    private String rechnungsnummer;
+    private LocalDate rechnunngsdatum;
     private float rechnungsbetrag;
     private Kunde kunde;
 
     public Rechnung(@JsonProperty("rid") UUID id,
-                @JsonProperty("rechnugsnummer") String rechnugsnummer,
-                @JsonProperty("Rechnungsbetrag") float rechnungsbetrag,
-                @JsonProperty("kunde") Kunde kunde){
+                @JsonProperty("rechnungsnummer") String rechnungsnummer,
+                @JsonProperty("rechnungsbetrag") float rechnungsbetrag,
+                @JsonProperty("kunde")Kunde kunde){
         this.rid = id;
-        this.rechnugsnummer=rechnugsnummer;
-        this.rechnungsdatum=java.time.LocalDate.now();
+        this.rechnungsnummer=rechnungsnummer;
+        this.rechnunngsdatum=java.time.LocalDate.now();
         this.rechnungsbetrag=rechnungsbetrag;
         this.kunde=kunde;
     }
@@ -28,11 +28,11 @@ public class Rechnung {
     }
 
     public String getRechnugsnummer(){
-        return rechnugsnummer;
+        return rechnungsnummer;
     }
 
     public LocalDate getRechnungsdatum(){
-        return rechnungsdatum;
+        return rechnunngsdatum;
     }
 
     public float getRechnungsbetrag(){

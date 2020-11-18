@@ -23,8 +23,9 @@ public class RechnungenService {
     }
 
     public int addRechnung(Rechnung rechnung, UUID kid){
+        int i=rechnungenDao.insertRechnung(rechnung, kundenService.getKundeById(kid).get());
         kundenService.getKundeById(kid).get().addRechnung(rechnung);
-        return rechnungenDao.insertRechnung(rechnung, kundenService.getKundeById(kid).get());
+        return i;
     }
 
     public List<Rechnung> getAllRechnungen() {

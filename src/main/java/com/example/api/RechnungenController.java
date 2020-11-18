@@ -4,17 +4,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import com.example.model.Kunde;
 import com.example.model.Rechnung;
-import com.example.service.KundenService;
 import com.example.service.RechnungenService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +27,7 @@ public class RechnungenController {
     }    
 
     @PostMapping(path = "{id}")
-    public void addKunde(@RequestBody Rechnung rechnung, @PathVariable("id") UUID id){
+    public void addRechnung(@RequestBody Rechnung rechnung, @PathVariable("id") UUID id){
         rechnungenService.addRechnung(rechnung, id);
     }
 

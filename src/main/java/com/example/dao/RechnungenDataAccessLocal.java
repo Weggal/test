@@ -17,7 +17,9 @@ public class RechnungenDataAccessLocal implements RechnungenDao {
 
     @Override
     public int insertRechnung(UUID id, Rechnung rechnung, Kunde kunde) {
-        DB.add(new Rechnung(id, rechnung.getRechnugsnummer(),rechnung.getRechnungsbetrag(), kunde));
+        Rechnung r= new Rechnung(id, rechnung.getRechnugsnummer(),rechnung.getRechnungsbetrag(), kunde);
+        r.getKunde().addRechnung(r);
+        DB.add(r);
         return 1;
     }
 
